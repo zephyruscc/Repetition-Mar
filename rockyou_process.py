@@ -2,7 +2,7 @@
 #     # 1. 读取文件并解析数据
 #     password_list = []
 #
-#     with open(input_file, 'r', encoding='utf-8') as file:
+#     with open(input_file, 'r', encoding='utf-8', errors="ignore") as file:
 #         for line in file:
 #             parts = line.strip().split(maxsplit=1)
 #             if len(parts) == 2:
@@ -22,34 +22,41 @@
 #
 #
 # # 示例用法
-# process_file('myspace-withcount.txt', 'processed_myspace.txt')
+# process_file('rockyou-withcount.txt', 'processed_rockyou.txt')
+
 
 
 import random
 
+# 定义文件路径
+input_file = "processed_rockyou.txt"
+train_file = "train.txt"
+test_file = "test.txt"
 
-def split_file(input_file, output_file1, output_file2):
-    # 1. 读取文件
-    with open(input_file, 'r', encoding='utf-8') as file:
-        lines = file.readlines()
+# 第一步：统计文件的总行数
+with open(input_file, "r", encoding="utf-8") as f:  # 使用合适的编码读取文件
+    lines = f.readlines()
 
-    # 2. 打乱行顺序
-    random.shuffle(lines)
+total_lines = len(lines)
+print(f"Total number of lines: {total_lines}")
 
-    # 3. 计算分割点
-    mid_point = len(lines) // 2
+# 第二步：随机选取 1e6 + 1e7 行作为候选样本
+sample_size = int(1e6 + 1e7)
+sample_indices = random.sample(range(total_lines), sample_size)  # 获取随机的行索引
+sampled_lines = [lines[i] for i in sample_indices]
 
-    # 4. 分割数据
-    part1 = lines[:mid_point]
-    part2 = lines[mid_point:]
+# 第三步：将前 1e6 行作为训练集
+train_set = sampled_lines[:int(1e6)]
 
-    # 5. 保存到新文件
-    with open(output_file1, 'w', encoding='utf-8') as file1:
-        file1.writelines(part1)
+# 第四步：将剩下的 1e7 行作为测试集
+test_set = sampled_lines[int(1e6):]
 
-    with open(output_file2, 'w', encoding='utf-8') as file2:
-        file2.writelines(part2)
+# 第五步：保存训练集到 train.txt
+with open(train_file, "w", encoding="utf-8") as f:
+    f.writelines(train_set)
 
+# 第六步：保存测试集到 test.txt
+with open(test_file, "w", encoding="utf-8") as f:
+    f.writelines(test_set)
 
-# 示例用法
-split_file('processed_myspace.txt', 'myspace_train.txt', 'myspace_test.txt')
+print("Training and test sets have been successfully saved.")
