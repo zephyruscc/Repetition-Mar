@@ -7,13 +7,12 @@ class MarkovPasswordGenerator:
         self.passwords = passwords
         self.max_order = max_order  # 最大的马尔可夫模型阶数
         self.threshold = threshold
-        self.markov_models = [defaultdict(Counter) for _ in range(max_order)]  # 不同阶数的模型
+        self.markov_models = {order: defaultdict(Counter) for order in range(1, max_order + 1)}
         self.start_prob = Counter()  # 第一个字符的初始概率
-        self.end_symbol = defaultdict(Counter)
-        self.build_markov_models()
         self.alpha = 0.01
         self.all_chars = list(chr(i) for i in range(32, 127))  # 去除非打印字符，如空白和控制字符
-        self.all_chars_end = self.all_chars.append("\x00")
+        self.all_chars_end = list(chr(i) for i in range(32, 127)) + ['\x00']
+        self.build_markov_models()
 
     def build_markov_models(self):
         # 构建不同阶数的马尔可夫模型
@@ -23,7 +22,6 @@ class MarkovPasswordGenerator:
             # 统计第一个字符的频率
             if password_length > 0:
                 self.start_prob[password[0]] += 1
-                self.end_symbol[password_length+1] += 1   # 索引表示实际位置
 
             # 低阶位置
             for order in range(1, self.max_order):
@@ -55,7 +53,7 @@ class MarkovPasswordGenerator:
         for char in self.all_chars:
             self.start_prob[char] = (self.start_prob[char] + self.alpha) / (total_starts + self.alpha * 95)
 
-        for order in range(1, self.max_order+1):
+        for order in range(1, self.max_order + 1):
             for seq, transitions in self.markov_models[order].items():
                 total_transitions = sum(transitions.values())
                 for next_char in self.all_chars_end:
@@ -65,39 +63,69 @@ class MarkovPasswordGenerator:
 
     def generate_passwords(self):
         # 生成密码猜测
-        passwords = []
+        passwords = {}
         for start_char in self.start_prob:
-            self._generate_from_node(start_char, self.start_prob[start_char], start_char, passwords, current_order=1)
+            dic = self._generate_from_node(start_char, self.start_prob[start_char])
+            passwords.update(dic)
         return passwords
 
-    def _generate_from_node(self, current_seq, current_prob, current_password, passwords, current_order):
-        if current_prob < self.threshold:
-            return
+    def _generate_from_node(self, start_char, start_pr):
+        if start_pr < self.threshold:
+            return {}
+        password_end = {}
 
-        passwords.append(current_password)
+        password_dic = {start_char:start_pr}
 
-        if current_order > self.max_order:
-            return
+        while password_dic:
+            # 迭代新的密码
+            new_password_dic = {}
+            for i in password_dic.keys():
+                password_length = len(i)
 
-        # 选择合适的Markov模型，根据当前序列生成下一个字符
-        if current_seq not in self.markov_models[current_order - 1]:
-            return
+                # 低阶密码处理
+                for order in range(1, self.max_order):
+                    if password_length == order:
 
-        for next_char, prob in self.markov_models[current_order - 1][current_seq].items():
-            next_prob = current_prob * prob
-            next_seq = (current_seq + next_char)[-current_order:]  # 更新序列，确保长度符合当前阶数
-            next_order = min(current_order + 1, self.max_order)  # 动态增加阶数
-            self._generate_from_node(next_seq, next_prob, current_password + next_char, passwords, next_order)
+                        for chr1 in self.all_chars:
+                            next_pr = password_dic[i] * self.markov_models[order][i][chr1]
+                            if next_pr > self.threshold:
+                                new_password_dic[i+chr1]= next_pr
 
+                        end_pr = password_dic[i] * self.markov_models[order][i]["\x00"]
+                        if end_pr >= self.threshold:
+                             password_end[i] = end_pr
 
-# 示例使用
-passwords = ["faita18", "keila", "123456", "nash1204", "sexxi1"]
+                # 高阶位置
+                if password_length >= self.max_order:
+                    sequence = i[-self.max_order:]
+
+                    for chr1 in self.all_chars:
+                        next_pr = password_dic[i] * self.markov_models[self.max_order][sequence][chr1]
+                        if next_pr > self.threshold:
+                            new_password_dic[i+chr1] = next_pr
+
+                    end_pr = password_dic[i] * self.markov_models[self.max_order][sequence]["\x00"]
+                    if end_pr >= self.threshold:
+                        password_end[i] = end_pr
+
+            password_dic = new_password_dic
+
+        return password_end
+
+# 读取训练集
+passwords = []
+# 读取 train.txt 文件中的每行内容并存储到数组中
+with open("train.txt", "r",encoding='utf-8') as file:
+    passwords = [line.strip() for line in file]
 
 # 生成最大4阶马尔可夫模型的密码猜测
-generator = MarkovPasswordGenerator(passwords, max_order=4, threshold=0.01)
+generator = MarkovPasswordGenerator(passwords, max_order=4, threshold=1e-14)
+generator.build_markov_models()
 generated_passwords = generator.generate_passwords()
 
-# 输出生成的密码
-print("生成的密码：")
-for password in generated_passwords:
-    print(password)
+# 将字典保存到本地 txt 文件
+with open("generated_passwords.txt", "w",encoding='utf-8') as txt_file:
+    for key, value in generated_passwords.items():
+        txt_file.write(f"{key}: {value}\n")
+
+print("字典已保存为 generated_passwords.txt")

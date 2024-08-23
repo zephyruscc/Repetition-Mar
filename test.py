@@ -26,19 +26,19 @@ import string
 #         print(password)
 # else:
 #     print("没有包含空格的密码。")
+from collections import defaultdict, Counter
 
 class MarkovPasswordGenerator:
     def __init__(self, passwords, max_order=4, threshold=0.01):
         self.passwords = passwords
         self.max_order = max_order  # 最大的马尔可夫模型阶数
         self.threshold = threshold
-        self.markov_models = [defaultdict(Counter) for _ in range(max_order)]  # 不同阶数的模型
+        self.markov_models = {order: defaultdict(Counter) for order in range(1, max_order + 1)}
         self.start_prob = Counter()  # 第一个字符的初始概率
-        self.end_symbol = defaultdict(Counter)
-        self.build_markov_models()
         self.alpha = 0.01
         self.all_chars = list(chr(i) for i in range(32, 127))  # 去除非打印字符，如空白和控制字符
-        self.all_chars_end = self.all_chars.append("\x00")
+        self.all_chars_end = list(chr(i) for i in range(32, 127)) + ['\x00']
+        self.build_markov_models()
 
     def build_markov_models(self):
         # 构建不同阶数的马尔可夫模型
@@ -48,7 +48,6 @@ class MarkovPasswordGenerator:
             # 统计第一个字符的频率
             if password_length > 0:
                 self.start_prob[password[0]] += 1
-                self.end_symbol[password_length + 1] += 1  # 索引表示实际位置
 
             # 低阶位置
             for order in range(1, self.max_order):
@@ -87,3 +86,39 @@ class MarkovPasswordGenerator:
                     transition_count = transitions[next_char] + self.alpha
                     self.markov_models[order][seq][next_char] = transition_count / (total_transitions + self.alpha * 96)
 
+
+passwords = ["faita18", "keila", "123456", "nash1204", "sexxi1"]
+
+# 生成最大4阶马尔可夫模型的密码猜测
+generator = MarkovPasswordGenerator(passwords, max_order=4, threshold=0.01)
+print(generator.markov_models)
+print(generator.start_prob)
+for start_char in generator.start_prob:
+    print(generator.start_prob[start_char])
+
+
+
+# import pandas as pd
+#
+# def display_markov_model_as_table(markov_models):
+#     # 创建一个空的 DataFrame
+#     data = []
+#
+#     # 遍历每个阶数的 Markov 模型
+#     for order, transitions in markov_models.items():
+#         for seq, next_chars in transitions.items():
+#             for next_char, prob in next_chars.items():
+#                 # 将每个序列及其对应的下一个字符和概率添加到数据中
+#                 data.append([order, seq, next_char, prob])
+#
+#     # 将数据转换为 DataFrame
+#     df = pd.DataFrame(data, columns=["Order", "Sequence", "Next Char", "Probability"])
+#
+#     # 打印表格
+#     print(df)
+#
+#     df.to_csv("markov_model.csv", index=False, encoding="utf-8")
+#     print(f"Markov model saved to {"markov_model.csv"}")
+#
+# # 使用示例
+# display_markov_model_as_table(generator.markov_models)
