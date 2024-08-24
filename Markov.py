@@ -118,6 +118,7 @@ with open("train.txt", "r",encoding='utf-8') as file:
     passwords = [line.strip() for line in file]
 
 # 生成 n 阶马尔可夫模型的密码猜测
+# 生成密码数 概率阈值 order
 # 16854956 1e-9 5
 # 99159486 1e-9 4
 # 49077526 1e-8 3

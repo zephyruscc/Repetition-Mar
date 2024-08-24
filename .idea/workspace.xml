@@ -13,16 +13,18 @@
       <change afterPath="$PROJECT_DIR$/guess_number4.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/guess_number5.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/guess_number55.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order_4.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/processed_rockyou.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/rockyou-withcount.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stored_results3.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/stored_results33.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stored_results4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stored_results5.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/stored_results55.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/top_passwords.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/top_passwords_key3.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/top_passwords_key33.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/top_passwords_key4.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/top_passwords_key5.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.plot">
+  <component name="RunManager" selected="Python.crack_and_plot">
     <configuration name="Markov" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Repetiton-Mar" />
       <option name="ENV_FILES" value="" />
@@ -91,6 +93,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="crack_and_plot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Repetiton-Mar" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="D:\Python_Project\Repetiton-Mar\crack_and_plot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="max_1m" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Repetiton-Mar" />
       <option name="ENV_FILES" value="" />
@@ -105,28 +129,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/max_1m.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="plot" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Repetiton-Mar" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plot.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -181,7 +183,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.plot" />
+        <item itemvalue="Python.crack_and_plot" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.rockyou_process" />
         <item itemvalue="Python.max_1m" />
@@ -285,7 +287,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724512569124</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="1">
+      <option name="closed" value="true" />
+      <created>1724513355189</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1724513355189</updated>
+    </task>
+    <task id="LOCAL-00012" summary="1">
+      <option name="closed" value="true" />
+      <created>1724513432227</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1724513432227</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
