@@ -1,6 +1,4 @@
-import string
 from collections import defaultdict, Counter
-
 
 class MarkovPasswordGenerator:
     def __init__(self, passwords, max_order=4, threshold=0.01):
@@ -41,9 +39,9 @@ class MarkovPasswordGenerator:
                 self.markov_models[self.max_order][password]["\x00"] += 1
 
             if password_length > self.max_order:
-                for i in range(password_length - order):
-                    sequence = password[i:i + order]
-                    next_char = password[i + order]
+                for i in range(password_length - self.max_order):
+                    sequence = password[i:i + self.max_order]
+                    next_char = password[i + self.max_order]
                     self.markov_models[self.max_order][sequence][next_char] += 1
                 end_sequence = password[-self.max_order:]
                 self.markov_models[self.max_order][end_sequence]["\x00"] += 1
@@ -67,6 +65,7 @@ class MarkovPasswordGenerator:
         for start_char in self.start_prob:
             dic = self._generate_from_node(start_char, self.start_prob[start_char])
             passwords.update(dic)
+        print(len(passwords))
         return passwords
 
     def _generate_from_node(self, start_char, start_pr):
@@ -118,13 +117,16 @@ passwords = []
 with open("train.txt", "r",encoding='utf-8') as file:
     passwords = [line.strip() for line in file]
 
-# 生成最大4阶马尔可夫模型的密码猜测
-generator = MarkovPasswordGenerator(passwords, max_order=4, threshold=1e-14)
+# 生成 n 阶马尔可夫模型的密码猜测
+# 16854956 1e-9 5
+# 99159486 1e-9 4
+# 49077526 1e-8 3
+generator = MarkovPasswordGenerator(passwords, max_order=3, threshold=1e-8)
 generator.build_markov_models()
 generated_passwords = generator.generate_passwords()
 
 # 将字典保存到本地 txt 文件
-with open("generated_passwords.txt", "w",encoding='utf-8') as txt_file:
+with open("generated_passwords3.txt", "w",encoding='utf-8') as txt_file:
     for key, value in generated_passwords.items():
         txt_file.write(f"{key}: {value}\n")
 

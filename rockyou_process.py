@@ -20,7 +20,6 @@
 #         for password in password_list:
 #             file.write(f"{password}\n")
 #
-#
 # # 示例用法
 # process_file('rockyou-withcount.txt', 'processed_rockyou.txt')
 
@@ -57,6 +56,6 @@ with open(train_file, "w", encoding="utf-8") as f:
 
 # 第六步：保存测试集到 test.txt
 with open(test_file, "w", encoding="utf-8") as f:
-    f.writelines(test_set)
+    f.writelines(sampled_lines)
 
 print("Training and test sets have been successfully saved.")

@@ -26,75 +26,81 @@ import string
 #         print(password)
 # else:
 #     print("没有包含空格的密码。")
-from collections import defaultdict, Counter
 
-class MarkovPasswordGenerator:
-    def __init__(self, passwords, max_order=4, threshold=0.01):
-        self.passwords = passwords
-        self.max_order = max_order  # 最大的马尔可夫模型阶数
-        self.threshold = threshold
-        self.markov_models = {order: defaultdict(Counter) for order in range(1, max_order + 1)}
-        self.start_prob = Counter()  # 第一个字符的初始概率
-        self.alpha = 0.01
-        self.all_chars = list(chr(i) for i in range(32, 127))  # 去除非打印字符，如空白和控制字符
-        self.all_chars_end = list(chr(i) for i in range(32, 127)) + ['\x00']
-        self.build_markov_models()
-
-    def build_markov_models(self):
-        # 构建不同阶数的马尔可夫模型
-        for password in self.passwords:
-            password_length = len(password)
-
-            # 统计第一个字符的频率
-            if password_length > 0:
-                self.start_prob[password[0]] += 1
-
-            # 低阶位置
-            for order in range(1, self.max_order):
-                if password_length < order:
-                    continue
-                sequence = password[0:order]
-
-                if password_length == order:
-                    self.markov_models[order][sequence]["\x00"] += 1
-                    continue
-
-                next_char = password[order]
-                self.markov_models[order][sequence][next_char] += 1
-
-            # 高阶位置
-            if password_length == self.max_order:
-                self.markov_models[self.max_order][password]["\x00"] += 1
-
-            if password_length > self.max_order:
-                for i in range(password_length - order):
-                    sequence = password[i:i + order]
-                    next_char = password[i + order]
-                    self.markov_models[self.max_order][sequence][next_char] += 1
-                end_sequence = password[-self.max_order:]
-                self.markov_models[self.max_order][end_sequence]["\x00"] += 1
-
-        # 将计数转换为概率
-        total_starts = sum(self.start_prob.values())
-        for char in self.all_chars:
-            self.start_prob[char] = (self.start_prob[char] + self.alpha) / (total_starts + self.alpha * 95)
-
-        for order in range(1, self.max_order + 1):
-            for seq, transitions in self.markov_models[order].items():
-                total_transitions = sum(transitions.values())
-                for next_char in self.all_chars_end:
-                    transition_count = transitions[next_char] + self.alpha
-                    self.markov_models[order][seq][next_char] = transition_count / (total_transitions + self.alpha * 96)
-
-
-passwords = ["faita18", "keila", "123456", "nash1204", "sexxi1"]
-
-# 生成最大4阶马尔可夫模型的密码猜测
-generator = MarkovPasswordGenerator(passwords, max_order=4, threshold=0.01)
-print(generator.markov_models)
-print(generator.start_prob)
-for start_char in generator.start_prob:
-    print(generator.start_prob[start_char])
+#
+#
+# from collections import defaultdict, Counter
+#
+# class MarkovPasswordGenerator:
+#     def __init__(self, passwords, max_order=4, threshold=0.01):
+#         self.passwords = passwords
+#         self.max_order = max_order  # 最大的马尔可夫模型阶数
+#         self.threshold = threshold
+#         self.markov_models = {order: defaultdict(Counter) for order in range(1, max_order + 1)}
+#         self.start_prob = Counter()  # 第一个字符的初始概率
+#         self.alpha = 0.01
+#         self.all_chars = list(chr(i) for i in range(32, 127))  # 去除非打印字符，如空白和控制字符
+#         self.all_chars_end = list(chr(i) for i in range(32, 127)) + ['\x00']
+#         self.build_markov_models()
+#
+#     def build_markov_models(self):
+#         # 构建不同阶数的马尔可夫模型
+#         for password in self.passwords:
+#             password_length = len(password)
+#
+#             # 统计第一个字符的频率
+#             if password_length > 0:
+#                 self.start_prob[password[0]] += 1
+#
+#             # 低阶位置
+#             for order in range(1, self.max_order):
+#                 if password_length < order:
+#                     continue
+#                 sequence = password[0:order]
+#
+#                 if password_length == order:
+#                     self.markov_models[order][sequence]["\x00"] += 1
+#                     continue
+#
+#                 next_char = password[order]
+#                 self.markov_models[order][sequence][next_char] += 1
+#
+#             # 高阶位置
+#             if password_length == self.max_order:
+#                 self.markov_models[self.max_order][password]["\x00"] += 1
+#
+#             if password_length > self.max_order:
+#                 for i in range(password_length - self.max_order):
+#                     sequence = password[i:i + self.max_order]
+#                     next_char = password[i + self.max_order]
+#                     self.markov_models[self.max_order][sequence][next_char] += 1
+#                 end_sequence = password[-self.max_order:]
+#                 self.markov_models[self.max_order][end_sequence]["\x00"] += 1
+#
+#         # 将计数转换为概率
+#         total_starts = sum(self.start_prob.values())
+#         for char in self.all_chars:
+#             self.start_prob[char] = (self.start_prob[char] + self.alpha) / (total_starts + self.alpha * 95)
+#
+#         for order in range(1, self.max_order + 1):
+#             for seq, transitions in self.markov_models[order].items():
+#                 print(seq)
+#                 print(transitions)
+#                 print('111')
+#                 total_transitions = sum(transitions.values())
+#                 for next_char in self.all_chars_end:
+#                     transition_count = transitions[next_char] + self.alpha
+#                     self.markov_models[order][seq][next_char] = transition_count / (total_transitions + self.alpha * 96)
+#
+#
+# passwords = ["faita18", "keila", "123456", "nash1204", "sexxi1",'f231ew']
+#
+# # 生成最大4阶马尔可夫模型的密码猜测
+# generator = MarkovPasswordGenerator(passwords, max_order=3, threshold=0.000001)
+# print(generator.markov_models)
+# print(generator.start_prob)
+# for start_char in generator.start_prob:
+#     print(generator.start_prob[start_char])
 
 
 
@@ -122,3 +128,26 @@ for start_char in generator.start_prob:
 #
 # # 使用示例
 # display_markov_model_as_table(generator.markov_models)
+
+# with open('generated_passwords5.txt', 'r',encoding='utf-8') as file:
+#     line_count = sum(1 for line in file)
+# print(f"文件共有 {line_count} 行")
+
+# from collections import Counter
+#
+# # 读取train.txt文件
+# with open('test.txt', 'r',encoding='utf-8') as file:
+#     passwords = file.readlines()
+#
+# # 去掉每行末尾的换行符并统计密码出现次数
+# passwords = [pwd.strip() for pwd in passwords]
+# password_counter = Counter(passwords)
+# k=0
+# # 将统计结果写入output.txt文件
+# with open('output2.txt', 'w',encoding='utf-8') as output_file:
+#     for password, count in password_counter.items():
+#         count = int(count)
+#         k += count
+#         output_file.write(f'{password}：{count}\n')
+#
+# print(k)
