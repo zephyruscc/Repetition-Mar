@@ -1,27 +1,27 @@
-# def process_file(input_file, output_file):
-#     # 1. 读取文件并解析数据
-#     password_list = []
-#
-#     with open(input_file, 'r', encoding='utf-8', errors="ignore") as file:
-#         for line in file:
-#             parts = line.strip().split(maxsplit=1)
-#             if len(parts) == 2:
-#                 try:
-#                     count = int(parts[0])  # 出现次数
-#                     password = parts[1]  # 密码
-#                     # 根据出现次数重复密码并添加到列表
-#                     password_list.extend([password] * count)
-#                 except ValueError:
-#                     # 如果出现次数不是整数，跳过这一行
-#                     continue
-#
-#     # 2. 将处理后的密码写入新文件
-#     with open(output_file, 'w', encoding='utf-8') as file:
-#         for password in password_list:
-#             file.write(f"{password}\n")
-#
-# # 示例用法
-# process_file('rockyou-withcount.txt', 'processed_rockyou.txt')
+def process_file(input_file, output_file):
+    # 1. 读取文件并解析数据
+    password_list = []
+
+    with open(input_file, 'r', encoding='utf-8', errors="ignore") as file:
+        for line in file:
+            parts = line.strip().split(maxsplit=1)
+            if len(parts) == 2:
+                try:
+                    count = int(parts[0])  # 出现次数
+                    password = parts[1]  # 密码
+                    # 根据出现次数重复密码并添加到列表
+                    password_list.extend([password] * count)
+                except ValueError:
+                    # 如果出现次数不是整数，跳过这一行
+                    continue
+
+    # 2. 将处理后的密码写入新文件
+    with open(output_file, 'w', encoding='utf-8') as file:
+        for password in password_list:
+            file.write(f"{password}\n")
+
+# 示例用法
+process_file('rockyou-withcount.txt', 'processed_rockyou.txt')
 
 
 

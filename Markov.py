@@ -3,12 +3,12 @@ from collections import defaultdict, Counter
 class MarkovPasswordGenerator:
     def __init__(self, passwords, max_order=4, threshold=0.01):
         self.passwords = passwords
-        self.max_order = max_order  # 最大的马尔可夫模型阶数
+        self.max_order = max_order  # 马尔可夫模型阶数
         self.threshold = threshold
         self.markov_models = {order: defaultdict(Counter) for order in range(1, max_order + 1)}
         self.start_prob = Counter()  # 第一个字符的初始概率
         self.alpha = 0.01
-        self.all_chars = list(chr(i) for i in range(32, 127))  # 去除非打印字符，如空白和控制字符
+        self.all_chars = list(chr(i) for i in range(32, 127))  # 95个字符
         self.all_chars_end = list(chr(i) for i in range(32, 127)) + ['\x00']
         self.build_markov_models()
 
