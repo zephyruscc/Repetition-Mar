@@ -9,27 +9,23 @@
       <change afterPath="$PROJECT_DIR$/generated_passwords3.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/generated_passwords5.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/guess_number3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guess_number33.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/guess_number4.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/guess_number5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/markov_model.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guess_number55.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/processed_rockyou.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/rockyou-withcount.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/stored_results3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stored_results33.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/stored_results4.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/stored_results5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/stored_results55.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/top_passwords.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/top_passwords_key.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/top_passwords_key3.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/top_passwords_key33.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/top_passwords_key5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Markov.py" beforeDir="false" afterPath="$PROJECT_DIR$/Markov.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/max_1m.py" beforeDir="false" afterPath="$PROJECT_DIR$/max_1m.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rockyou_process.py" beforeDir="false" afterPath="$PROJECT_DIR$/rockyou_process.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,8 +240,35 @@
       <option name="project" value="LOCAL" />
       <updated>1724424328680</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1">
+      <option name="closed" value="true" />
+      <created>1724510849486</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724510849487</updated>
+    </task>
+    <task id="LOCAL-00006" summary="1">
+      <option name="closed" value="true" />
+      <created>1724510961027</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724510961027</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
