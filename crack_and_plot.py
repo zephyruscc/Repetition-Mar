@@ -67,6 +67,7 @@ plt.title('Percentage of Passwords Cracked vs. Number of Guesses')
 plt.xlabel('Number of Guesses')
 plt.ylabel('Number of Passwords Cracked')
 plt.grid(True)
+plt.legend()
 # 设置横坐标范围为 0 到 3e8
 plt.xlim(0, 1e7)
 plt.show()
