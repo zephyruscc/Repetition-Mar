@@ -48,7 +48,8 @@ class MarkovPasswordGenerator:
 
         # 将计数转换为概率
         total_starts = sum(self.start_prob.values())
-        for char in self.all_chars:
+
+        for char, value in self.start_prob.items():
             self.start_prob[char] = (self.start_prob[char] + self.alpha) / (total_starts + self.alpha * 95)
 
         for order in range(1, self.max_order + 1):
@@ -119,15 +120,12 @@ with open("train.txt", "r",encoding='utf-8') as file:
 
 # 生成 n 阶马尔可夫模型的密码猜测
 # 生成密码数 概率阈值 order
-# 16854956 1e-9 5
-# 99159486 1e-9 4
-# 49077526 1e-8 3
-generator = MarkovPasswordGenerator(passwords, max_order=3, threshold=1e-8)
-generator.build_markov_models()
+# 34886259 1e-9 3
+generator = MarkovPasswordGenerator(passwords, max_order=3, threshold=1e-9)
 generated_passwords = generator.generate_passwords()
 
 # 将字典保存到本地 txt 文件
-with open("generated_passwords3.txt", "w",encoding='utf-8') as txt_file:
+with open("generated_passwords3_onemar.txt", "w",encoding='utf-8') as txt_file:
     for key, value in generated_passwords.items():
         txt_file.write(f"{key}: {value}\n")
 

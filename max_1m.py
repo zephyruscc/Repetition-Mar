@@ -2,8 +2,8 @@
 top_n = int(1e7)
 
 # 定义输入和输出文件名
-input_file = "generated_passwords4.txt"
-output_file = "top_passwords_key4.txt"
+input_file = "generated_passwords3_onemar.txt"
+output_file = "top_passwords_key3_onemar.txt"
 
 # 初始化一个列表来存储密码和概率对
 passwords_probabilities = []
