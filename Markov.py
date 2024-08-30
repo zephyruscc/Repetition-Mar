@@ -121,6 +121,7 @@ with open("train.txt", "r",encoding='utf-8') as file:
 # 生成 n 阶马尔可夫模型的密码猜测
 # 生成密码数 概率阈值 order
 # 34886259 1e-9 3
+# 30929499 1e-9 4
 # 14237751 1e-9 5
 generator = MarkovPasswordGenerator(passwords, max_order=5, threshold=1e-9)
 generated_passwords = generator.generate_passwords()
