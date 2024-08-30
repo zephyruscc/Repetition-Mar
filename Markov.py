@@ -121,11 +121,12 @@ with open("train.txt", "r",encoding='utf-8') as file:
 # 生成 n 阶马尔可夫模型的密码猜测
 # 生成密码数 概率阈值 order
 # 34886259 1e-9 3
-generator = MarkovPasswordGenerator(passwords, max_order=3, threshold=1e-9)
+# 14237751 1e-9 5
+generator = MarkovPasswordGenerator(passwords, max_order=5, threshold=1e-9)
 generated_passwords = generator.generate_passwords()
 
 # 将字典保存到本地 txt 文件
-with open("generated_passwords3_onemar.txt", "w",encoding='utf-8') as txt_file:
+with open("generated_passwords5_onemar.txt", "w",encoding='utf-8') as txt_file:
     for key, value in generated_passwords.items():
         txt_file.write(f"{key}: {value}\n")
 

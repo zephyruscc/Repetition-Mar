@@ -5,26 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="098fcd70-13f4-4985-a0bc-249464deb6a6" name="更改" comment="1">
-      <change afterPath="$PROJECT_DIR$/generated_passwords.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generated_passwords3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generated_passwords5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guess_number3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guess_number33.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guess_number4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guess_number5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guess_number55.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_passwords3_onemar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/generated_passwords5_onemar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guess_number.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/processed_rockyou.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/rockyou-withcount.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/stored_results3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stored_results33.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/stored_results4.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/stored_results5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stored_results55.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/top_passwords.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/top_passwords_key3.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/top_passwords_key33.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/top_passwords_key4.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/top_passwords_key5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/top_passwords_key3_onemar.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/top_passwords_key5_onemar.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Markov.py" beforeDir="false" afterPath="$PROJECT_DIR$/Markov.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crack_and_plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/crack_and_plot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/max_1m.py" beforeDir="false" afterPath="$PROJECT_DIR$/max_1m.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/order_all.png" beforeDir="false" afterPath="$PROJECT_DIR$/order_all.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +44,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/plot.py" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -55,22 +58,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.Markov.executor": "Run",
-    "Python.max_1m.executor": "Run",
-    "Python.plot.executor": "Run",
-    "Python.rockyou_process.executor": "Run",
-    "Python.test.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.Markov-debug.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.Markov.executor&quot;: &quot;Run&quot;,
+    &quot;Python.crack_and_plot (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.max_1m.executor&quot;: &quot;Run&quot;,
+    &quot;Python.plot.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rockyou_process.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;debugger.dataViews.python.type.renderers&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Python.crack_and_plot">
+}</component>
+  <component name="RunManager" selected="Python.crack_and_plot (1)">
+    <configuration name="Markov-debug" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Repetiton-Mar" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Markov-debug.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Markov" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Repetiton-Mar" />
       <option name="ENV_FILES" value="" />
@@ -85,6 +112,28 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Markov.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="crack_and_plot (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Repetiton-Mar" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crack_and_plot.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -137,57 +186,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="rockyou_process" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Repetiton-Mar" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rockyou_process.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Repetiton-Mar" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.crack_and_plot" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.rockyou_process" />
+        <item itemvalue="Python.crack_and_plot (1)" />
         <item itemvalue="Python.max_1m" />
         <item itemvalue="Python.Markov" />
+        <item itemvalue="Python.Markov-debug" />
+        <item itemvalue="Python.crack_and_plot" />
       </list>
     </recent_temporary>
   </component>
@@ -303,7 +308,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724513432227</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="1">
+      <option name="closed" value="true" />
+      <created>1724513534711</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1724513534711</updated>
+    </task>
+    <task id="LOCAL-00014" summary="1">
+      <option name="closed" value="true" />
+      <created>1724641453392</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1724641453392</updated>
+    </task>
+    <task id="LOCAL-00015" summary="1">
+      <option name="closed" value="true" />
+      <created>1725011474625</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1725011474625</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -326,6 +355,7 @@
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="generator" />
+        <watch expression="generator.markov_models[1]" />
       </configuration>
     </watches-manager>
   </component>
